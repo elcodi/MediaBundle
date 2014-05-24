@@ -12,14 +12,14 @@
  * @version ##version_placeholder##
  */
 
-namespace Elcodi\MediaBundle\Tests\Functional\Factory;
+namespace Elcodi\MediaBundle\Tests\Functional\Repository;
 
 use Elcodi\CoreBundle\Tests\WebTestCase;
 
 /**
- * Class ImageFactoryTest
+ * Class ImageRepositoryTest
  */
-class ImageFactoryTest extends WebTestCase
+class ImageRepositoryTest extends WebTestCase
 {
     /**
      * Returns the callable name of the service
@@ -29,30 +29,30 @@ class ImageFactoryTest extends WebTestCase
     public function getServiceCallableName()
     {
         return [
-            'elcodi.core.media.factory.image',
-            'elcodi.factory.image',
+            'elcodi.core.media.repository.image',
+            'elcodi.repository.image',
         ];
     }
 
     /**
-     * Test image factory provider
+     * Test image repository provider
      */
     public function testFactoryProvider()
     {
         $this->assertInstanceOf(
-            $this->container->getParameter('elcodi.core.media.entity.image.class'),
-            $this->container->get('elcodi.core.media.entity.image.instance')
+            $this->container->getParameter('elcodi.core.media.repository.image.class'),
+            $this->container->get('elcodi.core.media.repository.image')
         );
     }
 
     /**
-     * Test image factory provider alias
+     * Test image repository provider alias
      */
     public function testFactoryProviderAlias()
     {
         $this->assertInstanceOf(
-            $this->container->getParameter('elcodi.core.media.entity.image.class'),
-            $this->container->get('elcodi.entity.image.instance')
+            $this->container->getParameter('elcodi.core.media.repository.image.class'),
+            $this->container->get('elcodi.repository.image')
         );
     }
 }
