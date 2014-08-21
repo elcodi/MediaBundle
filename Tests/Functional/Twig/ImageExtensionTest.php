@@ -28,6 +28,8 @@ class ImageExtensionTest extends WebTestCase
      */
     public function setUp()
     {
+        parent::setUp();
+
         if (!class_exists('Twig_Extension')) {
 
             $this->markTestSkipped("Twig extension not installed");
