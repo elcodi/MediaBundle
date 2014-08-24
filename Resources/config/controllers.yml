@@ -1,0 +1,23 @@
+services:
+
+    #
+    # Controllers
+    #
+    elcodi.core.media.controller.image_resize:
+        class: %elcodi.core.media.controller.image_resize.class%
+        arguments:
+            request_stack: @request_stack
+            image_repository: @elcodi.repository.image
+            image_manager: @elcodi.core.media.service.image_manager
+            image_etag_transformer: @elcodi.image_etag_transformer
+            image_view_max_age: %elcodi.core.media.image_view_max_age%
+            image_view_shared_max_age: %elcodi.core.media.image_view_shared_max_age%
+
+    elcodi.core.media.controller.image_upload:
+        class: %elcodi.core.media.controller.image_upload.class%
+        arguments:
+            request_stack: @request_stack
+            image_object_manager: @elcodi.object_manager.image
+            file_manager: @elcodi.core.media.service.file_manager
+            image_manager: @elcodi.core.media.service.image_manager
+            image_upload_field_name: %elcodi.core.media.image_upload_field_name%

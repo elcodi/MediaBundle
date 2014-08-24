@@ -1,0 +1,13 @@
+services:
+
+    #
+    # Twig extensions
+    #
+    elcodi.core.media.twig_extension.image_extension:
+        class: %elcodi.core.media.twig_extension.image_extension.class%
+        arguments:
+            router: @router
+            image_resize_controller_route_name: %elcodi.core.media.image_resize_controller_route_name%
+            image_view_controller_route_name: %elcodi.core.media.image_view_controller_route_name%
+        tags:
+            - { name: twig.extension }
